@@ -11,5 +11,6 @@ config_version=5
 [application]
 
 config/name="Shovel GameJam"
-config/features=PackedStringArray("4.3", "Forward Plus")
+run/main_scene="uid://77xv7a4tkg11"
+config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
