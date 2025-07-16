@@ -468,7 +468,6 @@ texture = ExtResource("1_lbhrr")
 
 [node name="Background6" type="Sprite2D" parent="background"]
 position = Vector2(953.29, -183.415)
-scale = Vector2(1, 1)
 texture = ExtResource("1_lbhrr")
 
 [node name="Background5" type="Sprite2D" parent="background"]
