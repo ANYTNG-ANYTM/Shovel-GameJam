@@ -1,0 +1,64 @@
+[gd_scene load_steps=11 format=3 uid="uid://c5jdhvum6rb05"]
+
+[ext_resource type="Script" uid="uid://c7cbom1v0lv0j" path="res://scripts/enemy.gd" id="1_md484"]
+[ext_resource type="Texture2D" uid="uid://d1ydv4v8y2sj6" path="res://assets/Full body animated characters/Enemies/Enemy 1/idle_0.png" id="1_nenq2"]
+[ext_resource type="Texture2D" uid="uid://dlcoi3hkdxkch" path="res://assets/Full body animated characters/Enemies/Enemy 1/idle_1.png" id="2_md484"]
+[ext_resource type="Texture2D" uid="uid://cyjaie6buxr2r" path="res://assets/Full body animated characters/Enemies/Enemy 1/idle_2.png" id="3_ipns3"]
+[ext_resource type="Texture2D" uid="uid://befaxg1be2iv4" path="res://assets/Full body animated characters/Enemies/Enemy 1/idle_3.png" id="4_8qclf"]
+[ext_resource type="Texture2D" uid="uid://bm2p7oftwxlrf" path="res://assets/Full body animated characters/Enemies/Enemy 1/idle_4.png" id="5_w8i8w"]
+[ext_resource type="Texture2D" uid="uid://0t0bg7pjm33e" path="res://assets/Full body animated characters/Enemies/Enemy 1/idle_5.png" id="6_otmr2"]
+[ext_resource type="PackedScene" uid="uid://bj6remq8luf3s" path="res://scenes/killzone.tscn" id="7_wtq4b"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j0cyh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_nenq2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_md484")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ipns3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_8qclf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_w8i8w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_otmr2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g0wcc"]
+radius = 46.0
+height = 98.0
+
+[node name="enemy" type="Node2D"]
+script = ExtResource("1_md484")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2, -167)
+scale = Vector2(0.247684, 0.218452)
+sprite_frames = SubResource("SpriteFrames_j0cyh")
+frame_progress = 0.585272
+
+[node name="killzone" parent="." instance=ExtResource("7_wtq4b")]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
+position = Vector2(-2, -66)
+shape = SubResource("CapsuleShape2D_g0wcc")
+
+[node name="RayCastright" type="RayCast2D" parent="."]
+position = Vector2(0, -67)
+target_position = Vector2(80, 0)
+
+[node name="RayCastleft" type="RayCast2D" parent="."]
+position = Vector2(0, -67)
+target_position = Vector2(-75, -1)
