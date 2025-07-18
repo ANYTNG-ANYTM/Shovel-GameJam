@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://bplho7ogo8jfp"]
-
-[ext_resource type="Texture2D" uid="uid://cfwfvysw8n18l" path="res://assets/Decorations/dec3.png" id="1_smajk"]
-
-[node name="vine" type="Node2D"]
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_smajk")
