@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://c2eolon6eja5k"]
+
+[ext_resource type="Script" uid="uid://ctpxplecnpb7g" path="res://scripts/wall_jump.gd" id="1_1iwdg"]
+[ext_resource type="Texture2D" uid="uid://c4vwlfosrqwd3" path="res://assets/Decorations/dec4.png" id="2_f0ahy"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ypqmy"]
+radius = 47.0
+height = 214.0
+
+[node name="Wall_jump" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_1iwdg")
+
+[node name="Dec4" type="Sprite2D" parent="."]
+position = Vector2(-4.00001, -85)
+scale = Vector2(0.517241, 0.534884)
+texture = ExtResource("2_f0ahy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4, -64)
+shape = SubResource("CapsuleShape2D_ypqmy")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
