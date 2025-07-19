@@ -2,6 +2,8 @@ extends CharacterBody2D
 @onready var ray_castright: RayCast2D = $RayCastright
 @onready var ray_castleft: RayCast2D = $RayCastleft
 
+
+@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 var can_jump = false
 var can_dash = false
 var can_walljump=false
@@ -25,7 +27,28 @@ var wall_dir := 0  # -1 = left wall, 1 = right wall
 func _physics_process(delta: float) -> void:
 	# Apply gravity
 	if not is_on_floor():
-		velocity += get_gravity() * delta *2
+
+		velocity += get_gravity() * delta*2
+
+	# Handle jump.
+	
+	if Input.is_action_just_pressed("jump") and is_on_floor() and can_jump:
+		velocity.y = JUMP_VELOCITY
+
+	# Get the input direction.
+	var direction := Input.get_axis("move_left", "move_right")
+	
+	#to face in direction of motion
+	if direction > 0:
+		animated_sprite.flip_h = false
+	if direction < 0:
+		animated_sprite.flip_h = true
+	
+	
+	#for movement
+	if direction:
+		velocity.x = direction * SPEED
+
 	else:
 		velocity.y = 0  # Reset Y velocity when on floor
 
