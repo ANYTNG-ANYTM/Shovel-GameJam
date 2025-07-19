@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://o5eo8ar0k4lv"]
+
+[ext_resource type="Texture2D" uid="uid://cfwfvysw8n18l" path="res://assets/Decorations/dec3.png" id="1_f7cmv"]
+
+[node name="Sprite2D" type="RemoteTransform2D"]
+position = Vector2(-485, -207)
+
+[node name="RopeSprite" type="Sprite2D" parent="."]
+position = Vector2(10899, -195)
+texture = ExtResource("1_f7cmv")
+
+[node name="RopeSprite2" type="Sprite2D" parent="."]
+position = Vector2(10898, 144.178)
+texture = ExtResource("1_f7cmv")
+
+[node name="Dec3" type="Sprite2D" parent="."]
+position = Vector2(10946, -26.822)
+rotation = -3.14159
+scale = Vector2(0.92581, -0.707034)
+texture = ExtResource("1_f7cmv")
